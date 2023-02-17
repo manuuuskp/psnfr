@@ -1,0 +1,13 @@
+.cardwrapper {
+    max-width: 250px;
+    margin: 10px 20px;
+    padding: 10px;
+    background-color: ghostwhite;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.cardwrapper:hover {
+    box-shadow: 10px 10px 10px #e2e2e2;
+}

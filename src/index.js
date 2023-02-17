@@ -5,10 +5,7 @@ import App from "./App";
 
 import {BrowserRouter} from "react-router-dom";
 
-import "./App.scss";
-
-
-
+import "./App.scss"
 
 const el = document.getElementById("app");
 const root = createRoot(el);
