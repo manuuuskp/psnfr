@@ -24,6 +24,9 @@
             list-style-type: none;
             margin: 10px;
             cursor: pointer;
+            a {
+                text-decoration: none;
+            }
         }
     }
     &__loggin--cont {
