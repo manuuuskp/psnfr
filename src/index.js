@@ -5,9 +5,20 @@ import App from "./App";
 
 import {BrowserRouter} from "react-router-dom";
 
+import {QueryClient, QueryClientProvider} from "react-query"
+
 import "./App.scss"
 
 const el = document.getElementById("app");
 const root = createRoot(el);
 
-root.render(<BrowserRouter><App /></BrowserRouter>, el);
+const queryClient = new QueryClient()
+
+root.render(
+<BrowserRouter>
+    {/* <ProductStateReducer> */}
+    <QueryClientProvider client={queryClient}>
+        <App />
+    </QueryClientProvider>
+    {/* </ProductStateReducer> */}
+</BrowserRouter>, el);
