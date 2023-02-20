@@ -19,5 +19,8 @@
         &--item:hover {
             background-color: #c2c2c2;
         }
+        &--item.active {
+            background-color: navajowhite;
+        }
     }
 }

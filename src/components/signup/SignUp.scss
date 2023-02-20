@@ -1,0 +1,39 @@
+.signup {
+    &__container {
+        padding-top: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px;
+        gap: 100px;
+    }
+    &__content--label {
+        p {
+            margin-top: 10px;
+        }
+    }
+    &__field--error {
+        color: red;
+        margin: 10px 0;
+    }
+    &__content--field-cont {
+        margin: 10px;
+        input {
+            width: 250px;
+            border: none;
+            border-bottom: 1px solid #333;
+            height: 50px;
+        }
+        button {
+            width: 250px;
+            height: 40px;
+            background-color: #ff2b5f;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #bf0634;
+        }
+    }
+}

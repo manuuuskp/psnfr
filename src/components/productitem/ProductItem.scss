@@ -1,5 +1,28 @@
 .productItem {
+    &__title {
+        min-height: 50px;
+    }
     &__imgcontainer {
-        height: 200px;
+        height: 300px;
+    }
+    &__description {
+        background-color: #f1f1f1;
+        padding: 10px;
+        min-height: 150px;
+    }
+    &__purchase-cont {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+    &__buynow {
+        background-color: #ff2b5f;
+        border: none;
+        padding: 10px;
+        color: #fff;
+        cursor: pointer;
+    }
+    &__buynow:hover, &__buynow:focus {
+        background-color: #bf0634;
     }
 }

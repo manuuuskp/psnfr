@@ -1,15 +1,27 @@
 import React from "react";
 import {useNavigate} from "react-router";
 
+import logo from "./../../static/images/logo_2x.png";
+import CartIcon from "./../utils/icons/CartIcons";
+
 import "./Header.scss"
 
 
 const Header = () => {
     const navigate = useNavigate();
+
+    const onClickSignIn = () => {
+        navigate("signin");
+    }
+
+    const onClickRegister = () => {
+        navigate("signup");
+    }
+
     return <header>
         <div className="header__container" tabIndex="0">
             <div>
-                <img tabIndex="0" alt="sabka bazaar logo" src="./../../static/images/logo_2x.png"/>
+                <img className="header__logo" tabIndex="0" alt="sabka bazaar logo" src={logo}/>
             </div>
             <div>
                 <nav>
@@ -20,11 +32,11 @@ const Header = () => {
                 </nav>
             </div>
             <div>
-                <div>
-                    <a tabIndex="0">Sign In</a>
-                    <a tabIndex="0">Register</a>
+                <div className="header__loggin--cont">
+                    <a tabIndex="0" onClick={onClickSignIn}>Sign In</a>
+                    <a tabIndex="0" onClick={onClickRegister}>Register</a>
                 </div>
-                <div><span tabIndex="0">0 items</span></div>
+                <div className="header__cartdata"><button tabIndex="0"><CartIcon /><span>0 items</span></button></div>
             </div>
         </div>
     </header>

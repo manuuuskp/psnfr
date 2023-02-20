@@ -1,0 +1,38 @@
+.categoryitem {
+    &__container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        box-shadow: 10px 10px 10px #f1f1f1;
+        margin-top: 10px;
+        padding: 10px;
+
+        &:nth-child(even) {
+            .categoryitem__image--cont {
+                order: 2
+            }
+            .categoryitem__desc--cont {
+                order: 1;
+            }
+        }
+    }
+    &__desc--cont {
+        text-align: center;
+    }
+    &__image {
+        height: 300px;
+    }
+    &__description {
+        margin: 20px 0;
+        font-weight: 500;
+    }
+    &__explore {
+        padding: 10px 20px;
+        background-color: #ff2b5f;
+        border: none;
+        color: #fff;
+    }
+    &__explore:focus, &__explore:hover {
+        background-color: #bf0634;
+    }
+}
