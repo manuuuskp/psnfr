@@ -10,3 +10,15 @@
 .cardwrapper:hover {
     box-shadow: 10px 10px 10px #e2e2e2;
 }
+
+@media screen and (max-width: 1199px) {
+    .cardwrapper {
+        max-width: 240px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cardwrapper {
+        max-width: fit-content;
+    }
+}

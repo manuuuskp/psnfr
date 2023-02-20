@@ -6,5 +6,19 @@
             justify-content: center;
         }
     }
+    @media screen and (max-width: 1199px) {
+        &__container {
+            img {
+                width: -webkit-fill-available;
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        &__container {
+           .swiper-button-prev, .swiper-button-next {
+            display: none !important;
+           }
+        }
+    }
 }
 

@@ -4,4 +4,9 @@
         flex-wrap: wrap;
         padding-top: 20px;
     }
+    @media screen and (max-width: 768px) {
+        &__container {
+            justify-content: center;
+        }
+    }
 }

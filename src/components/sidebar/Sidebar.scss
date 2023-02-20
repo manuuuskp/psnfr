@@ -23,4 +23,14 @@
             background-color: navajowhite;
         }
     }
+    @media screen and (max-width: 1199px) {
+        &__container {
+            width: 200px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        &__container {
+            display: none;
+        }
+    }
 }

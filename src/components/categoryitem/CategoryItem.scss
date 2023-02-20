@@ -35,4 +35,17 @@
     &__explore:focus, &__explore:hover {
         background-color: #bf0634;
     }
+    @media screen and (max-width: 1199px) {
+        &__container {
+            gap: 30px;
+        }
+        &__image {
+                height: 200px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        &__image {
+                height: 100px;
+        }
+    }
 }

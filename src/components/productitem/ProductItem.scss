@@ -25,4 +25,20 @@
     &__buynow:hover, &__buynow:focus {
         background-color: #bf0634;
     }
+    @media screen and (max-width: 1199px) {
+        &__imgcontainer {
+            img {
+                width: -webkit-fill-available;
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        &__img-desc--cont {
+            display: flex;
+        }
+        &__imgcontainer {
+            max-width: 200px;
+            height: auto;
+        }
+    }
 }
