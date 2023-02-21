@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { cartItemContext } from "../cartreducer/CartReducer";
 import CardWrapper from "../utils/cardwrapper/CardWrapper";
 
 import "./ProductItem.scss";
 
 const ProductItem = (props) => {
+    const cartItemCtx = useContext(cartItemContext);
+
+    function addToCart() {
+        const cartItmObj = {
+            name: props.name,
+            image: props.images[props.imageURL],
+            price: props.price,
+            id: props.id,
+            curCount: 1
+        }
+        cartItemCtx.setCartItem({type:"addToCart", payload:cartItmObj});
+    }
+
     return <CardWrapper>
         <div className="productItem__title"><h4 tabIndex={0}>{props.name}</h4></div>
         <div className="productItem__img-desc--cont">
@@ -12,7 +26,7 @@ const ProductItem = (props) => {
         </div>
         <div className="productItem__purchase-cont">
             <div><span tabIndex={0}>{`MRP Rs.${props.price}`}</span></div>
-            <div><button className="productItem__buynow">BUY NOW</button></div>
+            <div><button className="productItem__buynow" onClick={addToCart}>BUY NOW</button></div>
         </div>
     </CardWrapper>
 }
