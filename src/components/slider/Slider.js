@@ -1,8 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Banners } from "./../../server/banners/index.get"
-
 import "./Slider.scss";
 
 import 'swiper/css';
@@ -10,9 +8,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from 'swiper';
+import { useQuery } from 'react-query';
+
+async function getBanners() {
+  const resp = await fetch('http://localhost:3001/banners');
+  return await resp.json();
+}
 
 const Slider =  () => {
-
     const cache = {};
     function importAll(r) {
         r.keys().forEach((key) => (cache[key] = r(key)));
@@ -25,7 +28,12 @@ const Slider =  () => {
         images[splitName] = cur[1].default;
     });
 
-    console.log(images);
+   const { isLoading, error, data } = useQuery('banners', getBanners);
+
+   if(isLoading) {
+    return <h2>Loading...</h2>
+   }
+
 
   return (
     <div className='slider__container'>
@@ -41,7 +49,7 @@ const Slider =  () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
         {
-            Banners.map(image => <SwiperSlide key={image.id}><img  src={images[image.bannerImageUrl]} alt={image.bannerImageAlt} /></SwiperSlide>)
+            data.map(image => <SwiperSlide key={image.id}><img  src={images[image.bannerImageUrl]} alt={image.bannerImageAlt} /></SwiperSlide>)
         }
     </Swiper>
     </div>
