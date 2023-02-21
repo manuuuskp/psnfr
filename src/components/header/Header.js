@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import {createPortal} from "react-dom";
 import {useNavigate} from "react-router";
 import { NavLink } from "react-router-dom";
+import Cart from "../cart/Cart";
+import Modal from "../utils/modal/Modal";
 
 import logo from "./../../static/images/logo_2x.png";
 import CartIcon from "./../utils/icons/CartIcons";
@@ -9,6 +12,7 @@ import "./Header.scss"
 
 
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
     const onClickSignIn = () => {
@@ -43,8 +47,9 @@ const Header = () => {
                     <a tabIndex="0" onClick={onClickSignIn}>Sign In</a>
                     <a tabIndex="0" onClick={onClickRegister}>Register</a>
                 </div>
-                <div className="header__cartdata"><button tabIndex="0"><CartIcon /><span>0 items</span></button></div>
+                <div className="header__cartdata"><button tabIndex="0" onClick={() => setIsOpen(true)}><CartIcon /><span>0 items</span></button></div>
             </div>
+            {isOpen && createPortal(<Modal><Cart setOpen={setIsOpen}></Cart></Modal>, document.getElementById("modal-root"))}
         </div>
     </header>
 }
