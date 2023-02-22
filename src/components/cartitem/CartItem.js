@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import { cartItemContext } from "../cartreducer/CartReducer";
 
 import "./cartItem.scss";
 
 const CartItem = (props) => {
+    const cartItemCtx = useContext(cartItemContext);
+    const cartItmObj = {
+        name: props.name,
+        image: props.image,
+        price: props.price,
+        id: props.id,
+        curCount: 1
+    }
+
+    function addToCart() {
+        cartItemCtx.setCartItem({type:"addToCart", payload:cartItmObj});
+    }
+
+    function removeFromCart() {
+        cartItemCtx.setCartItem({type:"removeFromCart", payload:cartItmObj});
+    }
+
     return (
         <div className="cartItem__container">
             <div className="cartItem__image--cont">
@@ -13,7 +31,7 @@ const CartItem = (props) => {
                 <div className="cartItem__content--btn">
                     <button>-</button>
                     <span className="cartItem__content--curCount">{props.curCount}</span>
-                    <button>+</button>
+                    <button onClick={addToCart}>+</button>
                     <span className="cartItem__content--asterik">*</span>
                     <span>Rs.{props.price}</span>
                 </div>
