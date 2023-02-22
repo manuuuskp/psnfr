@@ -12,10 +12,27 @@
         }
     }
     &__content--btn {
-        margin-top: 15px
+        margin-top: 15px;
+        button {
+            border-radius: 50%;
+            background-color: #ff2b5f;
+            border: none;
+            width: 25px;
+            height: 25px;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #bf0634;
+        }
     }
     &__content--curCount,
     &__content--asterik {
+        margin-inline: 10px;
+    }
+    &__content--cont {
+        flex-grow: 1;
         margin-inline: 10px;
     }
 }

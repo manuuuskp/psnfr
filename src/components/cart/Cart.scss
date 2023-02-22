@@ -38,4 +38,8 @@
     &__close {
         cursor: pointer;
     }
+    &__content {
+        height: 535px;
+        overflow: scroll;
+    }
 }
