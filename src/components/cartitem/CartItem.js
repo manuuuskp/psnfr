@@ -29,7 +29,7 @@ const CartItem = (props) => {
             <div className="cartItem__content--cont">
                 <div><h4>{props.name}</h4></div>
                 <div className="cartItem__content--btn">
-                    <button>-</button>
+                    <button onClick={removeFromCart}>-</button>
                     <span className="cartItem__content--curCount">{props.curCount}</span>
                     <button onClick={addToCart}>+</button>
                     <span className="cartItem__content--asterik">*</span>
