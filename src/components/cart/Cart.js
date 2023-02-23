@@ -38,8 +38,8 @@ const Cart = (props) => {
                 <div className="cart__checkout" role="button">
                         <span>Proceed to Checkout</span>
                     <div>
-                        <span>100 Rs</span>
-                        <span>{'>'}</span>
+                        <span>{cartItemCtx.cartItem.totalPrice} Rs</span>
+                        <span>{' >'}</span>
                     </div>
                 </div>
                 </>

@@ -1,7 +1,8 @@
 import React, { useReducer } from "react";
 
 const initialState = {
-    cartItems: {}
+    cartItems: {},
+    totalPrice: 0
 }
 
 function cartReducerFn(state, action) {
@@ -16,14 +17,16 @@ function cartReducerFn(state, action) {
                     cartItems: {
                         ...state.cartItems,
                         [action.payload.id]: cartObj
-                    }
+                    },
+                    totalPrice: state.totalPrice + action.payload.price
                 }
             } else {
                 return {
                     cartItems: {
                         ...state.cartItems,
                         [action.payload.id]: action.payload
-                    }
+                    },
+                    totalPrice: state.totalPrice + action.payload.price
                 }
             }
         break;
@@ -34,7 +37,8 @@ function cartReducerFn(state, action) {
                 }
                 delete cartItems[action.payload.id];
                 return {
-                    cartItems
+                    cartItems,
+                    totalPrice: state.totalPrice - action.payload.price
                 };
             } else {
                 const cartObj = {
@@ -45,7 +49,8 @@ function cartReducerFn(state, action) {
                     cartItems: {
                         ...state.cartItems,
                         [action.payload.id]: cartObj
-                    }
+                    },
+                    totalPrice: state.totalPrice - action.payload.price
                 }
             }
         break;
